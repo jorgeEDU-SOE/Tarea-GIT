@@ -1,6 +1,8 @@
 # Tarea-GIT
 Tarea del modulo 1 de la maestría de ciencia de datos
 
+URL PROYECTO: https://github.com/jorgeEDU-SOE/Tarea-GIT
+
 ## INTEGRANTES
 -  JORGE LUIS TORREZ GARCIA
 - LOREN DERECK JIMENEZ MAMANI
