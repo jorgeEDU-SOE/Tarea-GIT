@@ -192,5 +192,25 @@ class Ejercicios:
         reader = csv.DictReader(buffer)
         return list(reader)
 
+
+    # NUEVO MÉTODO AGREGADO (Cambio 1)
+    def filtrar_por_rango_edad(self, texto_json: str, edad_min: int, edad_max: int) -> str:
+        """Filtra personas dentro de un rango de edad específico y devuelve CSV"""
+        data = json.loads(texto_json)
+        
+        # Filtrado lógico con rangos
+        filtrados = [p for p in data if edad_min <= int(p.get("edad", 0)) <= edad_max]
+        
+        buffer = io.StringIO()
+        if not filtrados:
+            return "No hay registros en ese rango de edad."
+        
+        fieldnames = filtrados[0].keys()
+        writer = csv.DictWriter(buffer, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(filtrados)
+        
+        return buffer.getvalue()
+
 if __name__ == "__main__":
     main()
